@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulir</title>
+    <script language="text/vbscript">
+      Sub Bsubmit_OnClick()
+        Dim TheForm
+        Set TheForm = Document.form_khusus
+        If IsNumeric(TheForm.nama.Value) Then
+          MsgBox "Input anda salah, tidak boleh angka!"
+        Else
+          MsgBox "Terima Kasih."
+        End If
+    </script>
+  </head>
+  <body style="padding: 3% 20% 0">
+    <div style="width: 80%; margin: auto">
+      <p><b>Formulir Pendaftaran Kursus</b></p>
+      <form action="" method="POST" name="form_kursus">
+        <table width="100%" cellspacing="0" cellpadding="0">
+          <tr>
+            <td bgcolor="pink">Nama</td>
+            <td bgcolor="LightPink">:</td>
+            <td bgcolor="HotPink" width="60%">
+              <input type="text" name="nama" size="39" />
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="pink">Jenis Kelamin</td>
+            <td bgcolor="LightPink">:</td>
+            <td bgcolor="HotPink">
+              <input type="radio" name="jkl" value="L" checked /> Laki-laki
+              <input type="radio" name="jkl" value="p" /> Perempuan
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="pink">Alamat</td>
+            <td bgcolor="LightPink">:</td>
+            <td bgcolor="HotPink">
+              <input type="text" name="alamat" size="39" />
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="pink">Provinsi</td>
+            <td bgcolor="LightPink">:</td>
+            <td bgcolor="HotPink">
+              <select name="provinsi" size="1">
+                <option>Jawa Barat</option>
+                <option>Jawa Tengah</option>
+                <option>Jawa Timur</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="pink">Pilihan Kursus</td>
+            <td bgcolor="LightPink">:</td>
+            <td bgcolor="HotPink">
+              <input type="checkbox" name="kursus" value="inggris" />Bahasa
+              Inggris <br />
+              <input type="checkbox" name="kursus" value="komputer" />Komputer
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="pink">Password</td>
+            <td bgcolor="LightPink">:</td>
+            <td bgcolor="HotPink"><input type="password" name="password" /></td>
+          </tr>
+          <tr>
+            <td bgcolor="pink">Alamat Lengkap</td>
+            <td bgcolor="LightPink">:</td>
+            <td bgcolor="HotPink">
+              <textarea name="alamat_lengkap" cols="30" rows="10"></textarea>
+            </td>
+          </tr>
+        </table>
+        <p>
+          <input type="submit" value="Submit" id="Bsubmit" />
+          <input type="reset" value="Reset" name="Breset" />
+        </p>
+      </form>
+    </div>
+  </body>
+</html>

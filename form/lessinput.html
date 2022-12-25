@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulir</title>
+    <script>
+      function validasiForm() {
+        if (document.form_tamu.nama.value == "") {
+          alert("Kolom nama tidak boleh kosong");
+          return false;
+        }
+        if (document.form_tamu.alamat.value == "") {
+          alert("Kolom alamat tidak boleh kosong");
+          return false;
+        }
+        if (document.form_tamu.email.value == "") {
+          alert("Kolom email tidak boleh kosong");
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form
+      action=""
+      onsubmit="return validasiForm()"
+      method="POST"
+      name="form_tamu"
+    >
+      <table width="307" cellspacing="0" cellpadding="0">
+        <tr align="left" bgcolor="#00FF00">
+          <th colspan="3" scope="col">Form Validasi</th>
+        </tr>
+        <tr>
+          <td>Nama</td>
+          <td>:</td>
+          <td width="60%">
+            <input type="text" name="nama" size="39" />
+          </td>
+        </tr>
+        <tr>
+          <td>Alamat</td>
+          <td>:</td>
+          <td>
+            <input type="text" name="alamat" size="39" />
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>:</td>
+          <td><input type="email" name="email" /></td>
+        </tr>
+      </table>
+      <p>
+        <input type="submit" value="Kirim" name="Bsubmit" />
+      </p>
+    </form>
+  </body>
+</html>
