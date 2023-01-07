@@ -1,20 +1,71 @@
 <html>
-  <body bgcolor="Coral">
+  <head>
+    <style>
+      .menu:hover {
+        background-color: chocolate;
+        border-radius: 8px;
+        padding: 2px;
+      }
+      .menu.active {
+        background-color: rgb(223, 118, 43);
+        border-radius: 8px;
+        padding: 2px;
+      }
+      h3 {
+        margin: 0px;
+        padding: 5px 0px;
+      }
+    </style>
+  </head>
+  <body style="background-color: #ff7f50">
     <br />
-    <ul type="none">
-      <li>
-        <a href="profil.html" target="content"><h3>Profil</h3></a>
+    <ul type="none" style="padding-left: 4px">
+      <li class="menu" id="profil">
+        <a href="profil.html" onclick="setActive('profil')" target="content"
+          ><h3>Profil</h3></a
+        >
       </li>
-      <li>
-        <a href="visi.html" target="content"><h3>Visi</h3></a>
+      <li class="menu" id="visi">
+        <a href="visi.html" onclick="setActive('visi')" target="content"
+          ><h3>Visi</h3></a
+        >
       </li>
-      <li>
-        <a href="misi.html" target="content"><h3>Misi</h3></a>
+      <li class="menu" id="misi">
+        <a href="misi.html" onclick="setActive('misi')" target="content"
+          ><h3>Misi</h3></a
+        >
       </li>
-      <li>
-        <a href="tujuan.html" target="content"><h3>Tujuan</h3></a>
+      <li class="menu" id="tujuan">
+        <a href="tujuan.html" onclick="setActive('tujuan')" target="content"
+          ><h3>Tujuan</h3></a
+        >
+      </li>
+      <li class="menu" id="pengaturan" style="display: none">
+        <a
+          href="pengaturan.html"
+          onclick="setActive('pengaturan')"
+          target="content"
+          ><h3>Pengaturan</h3></a
+        >
       </li>
     </ul>
     <br />
   </body>
+  <script>
+    function setActive(menu) {
+      let otherMenu = document.querySelectorAll(".menu");
+      otherMenu.forEach(function (element) {
+        element.classList.remove("active");
+      });
+      const target = document.getElementById(menu);
+      target.classList.add("active");
+    }
+    if (localStorage.getItem("sidebar")) {
+      document.getElementsByTagName("body")[0].style.backgroundColor =
+        localStorage.getItem("sidebar");
+    }
+    if (localStorage.getItem("user")) {
+      document.getElementById("pengaturan").style.display = "block";
+    }
+  </script>
 </html>

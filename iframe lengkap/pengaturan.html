@@ -1,0 +1,104 @@
+<html>
+  <body bgcolor="Lavender">
+    <h1 align="center">Pengaturan</h1>
+    <hr />
+    <h3>Atur beberapa hal di website ini</h3>
+    <form
+      action="javascript:void(0)"
+      name="formPengaturan"
+      onsubmit="handleSubmit(this)"
+    >
+      <table>
+        <tr>
+          <td colspan="2"><b>Header</b></td>
+        </tr>
+        <tr>
+          <td>Warna header</td>
+          <td>
+            <input type="color" name="header_color" value="#ffa07a" />
+          </td>
+        </tr>
+        <tr>
+          <td>Tulisan header</td>
+          <td>
+            <input type="text" name="header_content" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Sidebar</b></td>
+        </tr>
+        <tr>
+          <td>Warna sidebar</td>
+          <td>
+            <input type="color" name="sidebar_color" value="#ff7f50" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Footer</b></td>
+        </tr>
+        <tr>
+          <td>Warna footer</td>
+          <td>
+            <input type="color" name="footer_color" value="#ffa07a" />
+          </td>
+        </tr>
+        <tr>
+          <td>Tulisan footer</td>
+          <td>
+            <input type="text" name="footer_content" />
+          </td>
+        </tr>
+      </table>
+      <button
+        type="button"
+        onclick="resetData()"
+        style="margin-top: 12px; width: 100px"
+      >
+        Reset
+      </button>
+      <button type="submit" style="margin-top: 12px; width: 100px">
+        Simpan
+      </button>
+    </form>
+    <a href="main.html" target="_parent" id="reset"></a>
+  </body>
+  <script>
+    // init val if exist
+    if (localStorage.getItem("header")) {
+      document.formPengaturan.header_color.value =
+        localStorage.getItem("header");
+    }
+    if (localStorage.getItem("footer")) {
+      document.formPengaturan.footer_color.value =
+        localStorage.getItem("footer");
+    }
+    if (localStorage.getItem("sidebar")) {
+      document.formPengaturan.sidebar_color.value =
+        localStorage.getItem("sidebar");
+    }
+
+    function handleSubmit(form) {
+      if (form.header_content.value == "") {
+        alert("Konten header tidak boleh kosong");
+        return false;
+      }
+      if (form.footer_content.value == "") {
+        alert("Konten footer tidak boleh kosong");
+        return false;
+      }
+      localStorage.setItem("header", form.header_color.value);
+      localStorage.setItem("header_content", form.header_content.value);
+      localStorage.setItem("footer", form.footer_color.value);
+      localStorage.setItem("footer_content", form.footer_content.value);
+      localStorage.setItem("sidebar", form.sidebar_color.value);
+      document.querySelector("a").click();
+      return false;
+    }
+    function resetData() {
+      if (confirm("pengaturan akan di reset menjadi seperti semula") == true) {
+        localStorage.clear();
+        document.querySelector("a").click();
+      }
+    }
+  </script>
+</html>

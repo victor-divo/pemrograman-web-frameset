@@ -1,0 +1,52 @@
+<html>
+  <body bgcolor="Lavender">
+    <h1 align="center">Login</h1>
+    <hr />
+    <h3>Login untuk mengakses menu pengaturan</h3>
+    <form
+      action="javascript:void(0)"
+      name="formLogin"
+      onsubmit="handleSubmit(this)"
+    >
+      <table>
+        <tr>
+          <td>user</td>
+          <td>
+            <input type="text" name="user" value="" />
+          </td>
+        </tr>
+        <tr>
+          <td>password</td>
+          <td>
+            <input type="password" name="password" />
+          </td>
+        </tr>
+      </table>
+      <button type="submit" style="margin-top: 12px; width: 100px">
+        Masuk
+      </button>
+    </form>
+    <a href="main.html" target="_parent" id="reset"></a>
+  </body>
+  <script>
+    function handleSubmit(form) {
+      if (form.user.value == "") {
+        alert("kolom user tidak boleh kosong");
+        return false;
+      }
+      if (form.password.value == "") {
+        alert("kolom password tidak boleh kosong");
+        return false;
+      }
+      if (form.user.value == "admin" && form.password.value == "password") {
+        localStorage.setItem("user", form.user.value);
+        alert("berhasil login");
+      } else {
+        alert("username atau password salah, periksa kembali");
+        return false;
+      }
+      document.querySelector("a").click();
+      return false;
+    }
+  </script>
+</html>

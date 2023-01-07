@@ -1,8 +1,49 @@
 <html>
-  <body bgcolor="LightSalmon">
+  <body style="background-color: #ffa07a" name="bodyHead">
     <h1 align="center">
       <img src="ftik.png" width="80px" alt="" align="center" />
-      Fakultas Teknologi Informasi dan Komunikasi
+      <span id="title">Fakultas Teknologi Informasi dan Komunikasi</span>
+      <a onclick="handleLogin()" style="text-decoration: none">
+        <div
+          style="
+            font-size: 0.5em;
+            display: inline-block;
+            float: right;
+            margin-right: 10px;
+            background-color: aqua;
+            color: black;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+          "
+          id="login-button"
+        >
+          Login
+        </div>
+      </a>
     </h1>
+    <a href="login.html" target="content" id="redirect-login"></a>
+    <a href="main.html" target="_parent" id="reset"></a>
   </body>
+  <script>
+    if (localStorage.getItem("header")) {
+      document.getElementsByTagName("body")[0].style.backgroundColor =
+        localStorage.getItem("header");
+    }
+    if (localStorage.getItem("header_content")) {
+      document.getElementById("title").innerHTML =
+        localStorage.getItem("header_content");
+    }
+    if (localStorage.getItem("user")) {
+      document.getElementById("login-button").innerHTML = "Logout";
+    }
+    function handleLogin() {
+      if (localStorage.getItem("user")) {
+        localStorage.removeItem("user");
+        document.getElementById("reset").click();
+      } else {
+        document.getElementById("redirect-login").click();
+      }
+    }
+  </script>
 </html>
